@@ -1,10 +1,11 @@
 
-#define TAU 6.28318530718
-#define MAX_ITER 6
+// #define TAU 6.28318530718
+#define TAU 0.000
+#define MAX_ITER 15
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-    vec3 water_color = vec3(1.0, 1.0, 1.0) * 0.5;
+    vec3 water_color = vec3(42, 42, 42) * 0.5;
 	float time = iTime * 0.5+23.0;
 	vec2 uv = fragCoord.xy / iResolution.xy;
 

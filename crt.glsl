@@ -62,7 +62,8 @@
 // Recommended values:
 //  o High DPI displays: 0.33333333
 //  - Low DPI displays:  0.66666666
-#define SCALE 0.33333333
+// #define SCALE 0.66666666
+#define SCALE 0.55555555
 
 // "Tube" warp
 #define CRTS_WARP 1
@@ -70,31 +71,33 @@
 // Darkness of vignette in corners after warping
 //  0.0 = completely black
 //  1.0 = no vignetting
-#define MIN_VIN 0.5
+#define MIN_VIN 1.0
 
 // Try different masks
-// #define CRTS_MASK_GRILLE 1
+#define CRTS_MASK_GRILLE 1
 // #define CRTS_MASK_GRILLE_LITE 1
 // #define CRTS_MASK_NONE 1
-#define CRTS_MASK_SHADOW 1
+// #define CRTS_MASK_SHADOW 1
 
 // Scanline thinness
 //  0.50 = fused scanlines
 //  0.70 = recommended default
 //  1.00 = thinner scanlines (too thin)
-#define INPUT_THIN 0.75
+// #define INPUT_THIN 0.30
+#define INPUT_THIN 0.20
 
 // Horizonal scan blur
 //  -3.0 = pixely
 //  -2.5 = default
 //  -2.0 = smooth
 //  -1.0 = too blurry
-#define INPUT_BLUR -2.75
+#define INPUT_BLUR -10.0
 
 // Shadow mask effect, ranges from,
 //  0.25 = large amount of mask (not recommended, too dark)
 //  0.50 = recommended default
 //  1.00 = no shadow mask
+// #define INPUT_MASK 0.65
 #define INPUT_MASK 0.65
 
 float FromSrgb1(float c) {
