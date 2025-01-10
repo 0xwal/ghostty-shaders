@@ -90,16 +90,16 @@ const vec3[24] samples = {
 float offsetFunction(float iTime) {
 	float amount = 1.0;
 	const float periods[4] = {6.0, 16.0, 19.0, 27.0};
-    for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
 	    amount *= 1.0 + 0.5 * sin(iTime*periods[i]);
 	}
 	//return amount;
 	return amount * periods[3];
 }
 
-const float DIM_CUTOFF = 0.35;
-const float BRIGHT_CUTOFF = 0.65;
-const float ABBERATION_FACTOR = 0.05;
+const float DIM_CUTOFF = 0.95;
+const float BRIGHT_CUTOFF = 0.45;
+const float ABBERATION_FACTOR = 0.042;
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
@@ -111,7 +111,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     col.g = texture( iChannel0, uv ).g;
     col.b = texture( iChannel0, vec2(uv.x+ABBERATION_FACTOR*amount / iResolution.x, uv.y) ).b;
 
-	vec4 splittedColor = vec4(col, 1.0);
+	vec4 splittedColor = vec4(col, .93); // opacity
     vec4 source = toOklab(splittedColor);
     vec4 dest = source;
 
@@ -123,7 +123,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 glow = vec3(0.0);
         for (int i = 0; i < 24; i++) {
             vec3 s = samples[i];
-            float weight = s.z;
+            float weight = s.z * 0.8;
             vec4 c = toOklab(texture(iChannel0, uv + s.xy * step));
             if (c.x > DIM_CUTOFF) {
                 glow.yz += c.yz * weight * 0.3;
