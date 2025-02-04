@@ -1,7 +1,7 @@
 
 // #define TAU 6.28318530718
-#define TAU 0.000
-#define MAX_ITER 15
+#define TAU 8.000
+#define MAX_ITER 10
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
