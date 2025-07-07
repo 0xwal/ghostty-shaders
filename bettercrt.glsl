@@ -9,7 +9,7 @@
 // - Made the boundaries match ghostty's background color
 
 // float warp = 0.25; // simulate curvature of CRT monitor
-float warp = 0.23;
+float warp = 0.25;
 // float scan = 0.50; // simulate darkness between scanlines
 float scan = 0.20;
 
@@ -31,5 +31,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     vec3 color = texture(iChannel0, uv).rgb;
 
     // mix the sampled color with the scanline intensity
-    fragColor = vec4(mix(color, vec3(0.0), apply), 0.93);
+    fragColor = vec4(mix(color, vec3(0.0), apply), 0.8);
 }

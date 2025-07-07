@@ -1,8 +1,8 @@
 /** Size of TFT "pixels" */
-float resolution = 5.0;
+float resolution = 2.0;
 
 /** Strength of effect */
-float strength = 0.15;
+float strength = 0.05;
 
 void _scanline(inout vec3 color, vec2 uv)
 {
@@ -19,5 +19,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     _scanline(color, uv);
 
     fragColor.xyz = color;
-    fragColor.w   = 0.91;
+    fragColor.w   = 0.8;
 }
