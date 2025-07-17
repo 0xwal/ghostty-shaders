@@ -2,7 +2,7 @@
 float resolution = 2.0;
 
 /** Strength of effect */
-float strength = 0.05;
+float strength = 0.10;
 
 void _scanline(inout vec3 color, vec2 uv)
 {
