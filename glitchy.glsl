@@ -1,6 +1,6 @@
 // modified version of https://www.shadertoy.com/view/wld3WN
 // amount of seconds for which the glitch loop occurs
-#define DURATION 10.
+#define DURATION 1.
 // percentage of the duration for which the glitch is triggered
 #define AMT .1
 

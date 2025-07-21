@@ -16,7 +16,7 @@ float getBayerFromPacked(int x, int y) {
 }
 
 #define LEVELS 2.0 // Available color steps per channel
-#define INV_LEVELS (1.0 / LEVELS)
+#define INV_LEVELS (0.8 / LEVELS)
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
@@ -26,5 +26,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     float threshold = getBayerFromPacked(int(fragCoord.x), int(fragCoord.y));
     vec3 dithered = floor(color * LEVELS + threshold) * INV_LEVELS;
 
-    fragColor = vec4(dithered, 1.0);
+    fragColor = vec4(dithered, 0.0);
 }
